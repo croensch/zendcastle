@@ -2,23 +2,43 @@
 class Castle_Application_Resource_Cachemanager extends Zend_Application_Resource_Cachemanager
 {
 	/**
-	 * Defined by Zend_Application_Resource_Resource
+	 * @var Zend_Log
+	 */
+	protected $_logger;
+	
+	/**
+	 * Initialize Cache_Manager
 	 *
 	 * @return Zend_Cache_Manager
 	 */
 	public function init()
 	{
-		$options = $this->getOptions();
-		if (isset($options['log'])) {
-			$logger = Zend_Log::factory($options['log']);
-			foreach( $options as &$writer ){
-				$writer['frontend']['options']['logging'] = true;
-				$writer['frontend']['options']['logger'] = $logger;
-				$writer['backend']['options']['logging'] = true;
-				$writer['backend']['options']['logger'] = $logger;
+		if( $this->_logger ){
+			foreach( $this->_options as &$templateOptions ){
+				$templateOptions['frontend']['options']['logger'] = $this->_logger;
+				$templateOptions['backend']['options']['logger'] = $this->_logger;
 			}
 		}
-		$this->setOptions($options);
+		
 		return parent::init();
+	}
+	
+	/**
+     * Set the logger
+     * 
+     * @param array|Zend_Log $log
+     * @return Castle_Application_Resource_Cachemanager
+     */
+	public function setLogger($logger)
+	{
+		if( is_array($logger) ){
+			$logger = Zend_Log::factory($logger);
+		}
+		
+		if( $logger instanceof Zend_Log ){
+			$this->_logger = $logger;
+		}
+		
+		return $this;
 	}
 }

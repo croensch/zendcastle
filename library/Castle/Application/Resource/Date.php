@@ -8,18 +8,15 @@ class Castle_Application_Resource_Date extends Zend_Application_Resource_Resourc
 	 */
 	public function init()
 	{
-		$options = $this->getOptions();
-		if (isset($options['cache'])) {
-			$this->setCache($options['cache']);
-		}
-		return;
 	}
 	
 	/**
      * Set the cache
+     * 
+     * @see Zend_Application_Resource_Locale
      *
      * @param string|Zend_Cache_Core $cache
-     * @return Zend_Application_Resource_Locale
+     * @return Castle_Application_Resource_Date
      */
     public function setCache($cache)
     {

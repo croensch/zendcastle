@@ -2,17 +2,40 @@
 class Castle_Application_Resource_Translate extends Zend_Application_Resource_Translate
 {
 	/**
-	 * Defined by Zend_Application_Resource_Resource
+	 * @var Zend_Log
+	 */
+	protected $_log;
+	
+	/**
+	 * Initialize Translate
 	 *
 	 * @return Zend_Translate
 	 */
 	public function init()
 	{
-		$options = $this->getOptions();
-		if (isset($options['log'])) {
-			$options['log'] = Zend_Log::factory($options['log']);
+		if( $this->_log ){
+			$this->_options['log'] = $this->_log;
 		}
-		$this->setOptions($options);
+		
 		return parent::init();
+	}
+	
+	/**
+     * Set the log
+     * 
+     * @param array $log
+     * @return Castle_Application_Resource_Translate
+     */
+	public function setLog($log)
+	{
+		if( is_array($log) ){
+			$log = Zend_Log::factory($log);
+		}
+		
+		if( $log instanceof Zend_Log ){
+			$this->_log = $log;
+		}
+		
+		return $this;
 	}
 }
