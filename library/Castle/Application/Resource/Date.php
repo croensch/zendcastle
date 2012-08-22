@@ -1,4 +1,21 @@
 <?php
+/**
+ * Castle Framework
+ * 
+ * @link      http://github.com/croensch/zendcastle
+ * @copyright 2011-2012 Christoph Roensch
+ * @license   Simplified BSD License
+ */
+
+/**
+ * Date resource
+ * 
+ *  - provides a cache instance to any date
+ * 
+ * @category   Castle
+ * @package    Castle_Application
+ * @subpackage Resource
+ */
 class Castle_Application_Resource_Date extends Zend_Application_Resource_ResourceAbstract
 {
 	/**
