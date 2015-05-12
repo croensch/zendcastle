@@ -1,0 +1,15 @@
+{
+	"name": "zendcastle",
+	"description": "A sandbox for bootstrapping Zend Framework",
+	"require": {
+		"zendframework/zendframework1": "~1.12.8"
+	},
+	"suggest": {
+		"phpunit/phpunit": "~4.4.0"
+	},
+	"autoload": {
+		"psr-0": {
+			"Castle_": "library/"
+		}
+	}
+}

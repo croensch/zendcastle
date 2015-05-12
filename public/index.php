@@ -16,8 +16,8 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
-/** Zend_Application */
-require_once 'Zend/Application.php';
+// autoloading (Composer)
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 // Create application, bootstrap, and run
 $application = new Zend_Application(
