@@ -2,7 +2,9 @@
 	"name": "zendcastle",
 	"description": "A sandbox for bootstrapping Zend Framework",
 	"require": {
-		"zendframework/zendframework1": "~1.12.8"
+		"zendframework/zendframework1": "~1.12.8",
+		"zendframework/zendframework": "~2.4.2",
+		"roave/zf2-for-1": "0.2.0"
 	},
 	"suggest": {
 		"phpunit/phpunit": "~4.4.0"

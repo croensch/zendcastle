@@ -1,6 +1,6 @@
 <?php
 
-class ZcController extends Zend_Controller_Action
+class Zc1_ZcController extends Zend_Controller_Action
 {
 
 	/**
@@ -43,5 +43,10 @@ class ZcController extends Zend_Controller_Action
     	$this->view->ZendHttpUserAgentDeviceHasFeatureMp3 = $bootstrap->getResource('UserAgent')->getDevice()->hasFeature('mp3') ? 'yep' : 'nope';
     	// view+ 
     }
+
+	public function zf2Action()
+	{
+		$this->view->zf2 = $this->getInvokeArg('bootstrap')->getResource('zf2');
+	}
 }
 
